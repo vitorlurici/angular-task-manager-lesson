@@ -1,0 +1,155 @@
+$primary-color: #4caf50;
+$primary-hover: darken($primary-color, 10%);
+$secondary-color: #f44336;
+$secondary-hover: darken($secondary-color, 10%);
+$background-color: #f9f9f9;
+$card-bg: #ffffff;
+$text-color: #333;
+$border-color: #ddd;
+$third-color: #3e6ad9;
+$third-hover: darken($third-color, 10%);
+
+:host {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Roboto", sans-serif;
+  padding: 2rem;
+  background-color: $background-color;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: $text-color;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+p {
+  font-size: 1rem;
+  color: $text-color;
+  margin-bottom: 1rem;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.container > input {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1px solid $border-color;
+  border-radius: 0.5rem;
+  outline: none;
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 1rem;
+
+  &:focus {
+    border-color: $primary-color;
+    box-shadow: 0 0 0.25rem rgba(76, 175, 80, 0.5);
+  }
+}
+
+.container > button {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  margin: 0.5rem;
+  background-color: $primary-color;
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: $primary-hover;
+  }
+
+  &:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+}
+
+.task-list {
+  width: 100%;
+  max-width: 500px;
+  background: $card-bg;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  margin-top: 1rem;
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem;
+      border-bottom: 1px solid $border-color;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      span {
+        font-size: 1rem;
+        color: $text-color;
+        transition: all 0.3s;
+
+        &.task-completed {
+          text-decoration: line-through;
+          color: $primary-color;
+        }
+
+        &:not(.task-completed) {
+          color: $secondary-color;
+        }
+      }
+
+      button {
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+        background-color: $primary-color;
+        color: #fff;
+        border: none;
+        border-radius: 0.25rem;
+        cursor: pointer;
+        transition: background-color 0.3s;
+
+        &:hover {
+          background-color: $primary-hover;
+        }
+
+        &:disabled {
+          background-color: $border-color;
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+}
+
+.container > .toggle-button {
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  background-color: $third-color;
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: $third-hover;
+  }
+}

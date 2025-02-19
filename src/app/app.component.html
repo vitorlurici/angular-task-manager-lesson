@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="app.component.scss" />
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Gerenciador de tarefas</h1>
+      <p>Número de tarefas: {{ tasks.length }}</p>
+
+      <input
+        type="text"
+        [(ngModel)]="newTaskName"
+        placeholder="Digite o nome da tarefa"
+      />
+      <button (click)="addTask()" [disabled]="!newTaskName.trim()">
+        Adicionar tarefa
+      </button>
+
+      <button class="toggle-button" (click)="toggleTaskList()">
+        {{ showTaskList ? "Esconder tarefas" : "Mostrar tarefas" }}
+      </button>
+      <div class="task-list">
+        <ul *ngIf="showTaskList">
+          <li *ngFor="let task of tasks">
+            <span
+              [ngClass]="{ 'task-completed': task.completed }"
+              [ngStyle]="{ color: task.completed ? 'green' : 'red' }"
+            >
+              {{ task.name }}
+            </span>
+            <button (click)="markAsCompleted(task)" [disabled]="task.completed">
+              Concluída
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
