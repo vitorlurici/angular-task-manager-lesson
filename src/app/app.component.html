@@ -14,13 +14,15 @@
         [(ngModel)]="newTaskName"
         placeholder="Digite o nome da tarefa"
       />
-      <button (click)="addTask()" [disabled]="!newTaskName.trim()">
-        Adicionar tarefa
-      </button>
+      <div class="buttons-line">
+        <button (click)="addTask()" [disabled]="!newTaskName.trim()">
+          Adicionar tarefa
+        </button>
 
-      <button class="toggle-button" (click)="toggleTaskList()">
-        {{ showTaskList ? "Esconder tarefas" : "Mostrar tarefas" }}
-      </button>
+        <button class="toggle-button" (click)="toggleTaskList()">
+          {{ showTaskList ? "Esconder tarefas" : "Mostrar tarefas" }}
+        </button>
+      </div>
       <div class="task-list">
         <ul *ngIf="showTaskList">
           <li *ngFor="let task of tasks">
